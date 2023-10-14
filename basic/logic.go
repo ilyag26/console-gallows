@@ -2,8 +2,9 @@ package basic
 
 import (
 	"fmt"
-	"slices"
 	"strings"
+
+	"golang.org/x/exp/slices"
 )
 
 var (
@@ -22,18 +23,14 @@ func PrintRules() {
 		"\n-----------")
 }
 func gallowsPrint(attemps int) {
-	switch {
-	case attemps == 5:
-		fmt.Print("|--------\n|       |\n|       O\n|\n|\n|\n")
-	case attemps == 4:
-		fmt.Print("|--------\n|       |\n|       O\n|       |\n|\n|\n")
-	case attemps == 3:
-		fmt.Print("|--------\n|       |\n|       O\n|      /|\\\n|\n|\n")
-	case attemps == 2:
-		fmt.Print("|--------\n|       |\n|       O\n|      /|\\\n|	|\n|\n")
-	case attemps == 1:
-		fmt.Print("|--------\n|       |\n|       O\n|      /|\\\n|	|\n|      / \\\n")
+	m := map[int]string{
+		5: "|--------\n|       |\n|       O\n|\n|\n|\n",
+		4: "|--------\n|       |\n|       O\n|       |\n|\n|\n",
+		3: "|--------\n|       |\n|       O\n|      /|\\\n|\n|\n",
+		2: "|--------\n|       |\n|       O\n|      /|\\\n|	|\n|\n",
+		1: "|--------\n|       |\n|       O\n|      /|\\\n|	|\n|      / \\\n",
 	}
+	fmt.Println(m[attemps])
 }
 func maskingWord(lengthWord int) []string {
 	var mask []string
